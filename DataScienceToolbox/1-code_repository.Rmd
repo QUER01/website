@@ -1,0 +1,478 @@
+---
+title: "Code Repository"
+date: "4 Januar 2017"
+output:
+  html_document:
+    number_sections: yes
+    toc: yes
+    toc_float: no
+    toc_depth: 5
+---
+#Code Repository R
+
+## Descriptive Analytics and Diagnostic Analytics
+
+### Business Requirements
+### Data Exploration
+
+#### Loading data from csv
+<a name="Loading data from csv"></a>
+```{r, eval=FALSE, include=TRUE}
+############################
+#Load Train and Test datasets
+############################
+# Load train csv file
+
+df_train_filepath <- file.choose()
+df_train <- read.csv(df_train_filepath, header=TRUE, sep=",")
+
+# Load test csv file
+df_test_filepath <- file.choose()
+df_test <- read.csv(df_test_filepath,  header=TRUE, sep=",")
+
+# Choose predictor
+select.list(sort(colnames(df_train)), title = "Please select the predictor")
+predictor <- select.list(sort(colnames(df_train)), title = "Please select the predictor")
+
+#Identify feature and response variable(s) and
+#values must be numeric and numpy arrays
+x_train <- df_train[, names(df_train) != predictor]   
+y_train <- df_train[,predictor]
+x_test <- df_test
+x <- cbind(x_train,y_train)
+
+```
+#### Visual Data Exploration
+
+This is a Shiny app for visual data exploration. 
+
+```{r, eval=FALSE, include=TRUE}
+#install.packages("dplyr")
+#install.packages("GGally")
+#install.packages("FactoMineR")
+#install.packages("Boruta")
+#install.packages("shiny")
+#install.packages("ggplot2")
+#install.packages("car")
+
+library(Boruta)
+library(shiny)
+library(ggplot2)
+library(dplyr)
+library(car)
+library(GGally)
+library(FactoMineR)
+
+
+myfile <- file.choose()
+data_df <- read.csv(myfile, header=TRUE, sep=",")
+
+
+ui <- fluidPage(
+  titlePanel("Data Exploration"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("Predictor_Col_Input", "Predictor Column", choices = colnames(data_df), selected =colnames(data_df[1])),
+      selectInput("Primary_Col_Input", "Primary Column", choices = colnames(data_df), selected =colnames(data_df[2])),
+      selectInput("Secondary_Col_Input", "Secondary Column", choices = colnames(data_df),selected = colnames(data_df[1])),
+      checkboxGroupInput("Col_Input", "Selected Columns", choices = colnames(data_df) , selected =  colnames(data_df))
+    ),
+    mainPanel(
+      tabsetPanel(
+       # tabPanel("Select Data", 
+      #           fluidRow(
+      #             column(12,fileInput("file","Upload the file")), # fileinput() function is used to get the file upload contorl option)
+      #             column(12,helpText("Default max. file size is 5MB")),
+      #             column(12,tags$hr()),
+      #             column(12,h5(helpText("Select the read.table parameters below"))),
+      #             column(12,checkboxInput(inputId = 'header', label = 'Header',value = TRUE)),
+      #             column(12,checkboxInput(inputId = "stringAsFactors", "stringAsFactors", FALSE)),
+      #             column(12,br()),
+      #             column(12,radioButtons(inputId = 'sep', label = 'Separator', choices = c(Comma=',',Semicolon=';',Tab='\t', Space=''), selected = ','))
+      #           )),
+     
+        tabPanel("Summary All", 
+                 fluidRow(
+                   column(12,dataTableOutput("filedf"))
+                 )),
+        tabPanel("Summary", 
+                 fluidRow(
+                   column(12,"Summary"),
+                   column(12, dataTableOutput("plot1")),
+                   column(12,"Bar Chart"),
+                   column(12,plotOutput("plot1.1"))
+                 )),
+        tabPanel("Histogram",
+                 fluidRow(
+                   column(12,"Histogram"),
+                   column(12, plotOutput("plot2")),
+                   column(12,"QQ plot"),
+                   column(12, plotOutput("plot2.1")),
+                   column(12,"log QQ plot"),
+                   column(12, plotOutput("plot2.2")),
+                   column(12,"exp QQ plot"),
+                   column(12, plotOutput("plot2.3"))
+                 )),
+        tabPanel("Correlations",
+                 fluidRow(
+                   column(12,"Scatterplot"),
+                   column(12, plotOutput("plot3")),
+                   column(12,"Correlation Matrix"),
+                   column(12, plotOutput("plot3.1"))
+                 )),
+        tabPanel("Correlation Matrix",
+                 fluidRow(
+                   column(12,"Correlation Matrix"),
+                   column(12, plotOutput("plot4.1")),
+                   column(12, plotOutput("plot4.2")),
+                   column(12, plotOutput("plot4.3")),
+                   column(12, plotOutput("plot4.4"))
+                 )),
+        tabPanel("Dimension Reduction",
+                 fluidRow(
+                   column(12,"Boruta output: please wait until R has computed your results."),
+                   actionButton("Start_Boruta", "Start calculating decission tree with pruning"),
+                   column(12, dataTableOutput("plot5.1"))
+                   #,column(12, plotOutput("plot5.2"))
+                 ))
+        
+        
+      )
+    )
+  )
+)
+server <- function(input, output, session) {
+  
+  # Filter the data
+  #-----------------------------------------------------#
+  main_filtered <- reactive({ 
+    if(is.null(data_df)){return ()}
+    data_df[c(input$Col_Input,input$Predictor_Col_Input)]
+  })
+  
+  filtered <- reactive({ 
+    main_filtered()[c(input$Primary_Col_Input,input$Secondary_Col_Input)]
+  })
+  
+  # Explore the Data
+  #-----------------------------------------------------#
+  # this reactive output contains the summary of the dataset and display the summary in table format
+  output$filedf <- renderDataTable({
+    summary(main_filtered()[,sapply(na.omit(main_filtered()),is.numeric)]) 
+  })
+  
+  # First plot on the right
+  output$plot1 <-     renderDataTable({
+    summary(filtered()) 
+  })
+  
+  output$plot1.1 <-     renderPlot({ 
+    ggplot(main_filtered(),aes(main_filtered()[c(input$Primary_Col_Input)]) ) + geom_bar()
+  })
+  
+  # Second plot on the right
+  output$plot2 <- renderPlot({  
+    ggplot(filtered(), aes(filtered()[c(input$Primary_Col_Input)])) +  geom_histogram()
+  })
+  
+  output$plot2.1 <- renderPlot({  
+    ggplot(filtered(),  aes(sample=filtered()[c(input$Primary_Col_Input)])) +   stat_qq()
+  })
+  
+  output$plot2.2 <- renderPlot({  
+    ggplot(filtered(),  aes(sample=log(filtered()[c(input$Primary_Col_Input)]))) +   stat_qq()
+  })
+  
+  output$plot2.3 <- renderPlot({  
+    ggplot(filtered(),  aes(sample=exp(filtered()[c(input$Primary_Col_Input)]))) +   stat_qq()
+  })
+  
+  # Third plot on the right
+  output$plot3 <- renderPlot({  
+    ggplot(filtered(),  aes(x=filtered()[c(input$Primary_Col_Input)],y =filtered()[c(input$Secondary_Col_Input)] )) + geom_point()
+  })
+  
+  output$plot3.1 <-     renderPlot({ 
+    ggcorr(filtered(), label = TRUE, label_size = 3, label_round = 2, label_alpha = TRUE)
+  })
+  
+  
+  output$plot4.1 <-     renderPlot({
+    ggcorr(main_filtered()[1:15], label = TRUE, label_size = 3, label_round = 2, label_alpha = TRUE)
+  })
+  
+  
+  output$plot4.2 <-     renderPlot({
+    ggcorr(main_filtered()[16:31], label = TRUE, label_size = 3, label_round = 2, label_alpha = TRUE)
+  })
+  
+  
+  output$plot4.3 <-     renderPlot({ 
+    ggcorr(main_filtered()[32:47], label = TRUE, label_size = 3, label_round = 2, label_alpha = TRUE)
+  })
+  
+  
+  output$plot4.4 <-     renderPlot({ 
+    ggcorr(main_filtered()[48:63], label = TRUE, label_size = 3, label_round = 2, label_alpha = TRUE) 
+  })
+  
+
+  observeEvent(input$Start_Boruta, 
+               {
+                 boruta.train <- Boruta(Response~., data = main_filtered()[], doTrace = 2, maxRuns = 11)
+                 #boruta.train <- Boruta(Response~., data = main_filtered()[], doTrace = 2)
+                 final.boruta <- TentativeRoughFix(boruta.train)
+                 boruta.df <- attStats(final.boruta)
+                 boruta.df[["names"]] <- rownames(boruta.df)
+                 output$plot5.1 <-     renderDataTable({ 
+                  boruta.df[c(7,1:6)]
+                 })
+  })
+
+}
+
+shinyApp(ui = ui, server = server)
+```
+
+![Shiny Data Exploration App - Summary Tab](images\Shiny App - Data Exploration - Summary Tab.JPG)
+![some caption](images\Shiny App - Data Exploration - Correlation Tab.JPG)
+
+### Data Cleansing
+
+```{r, eval=FALSE, include=TRUE}
+
+```
+
+### Data Modelling
+
+### Result Evaluation
+
+```{r, eval=FALSE, include=TRUE}
+
+```
+
+
+### Data Science Project Planning
+
+
+## Predictive Analytics and Prescriptive Analytics
+
+### Data Modelling
+
+
+#### Linear Regression
+```{r, eval=FALSE, include=TRUE}
+# ML algorithm
+#Train the model using the training sets and
+#check score
+linear <- lm(y_train ~ ., data = x)
+
+# Model Evaluation
+summary(linear)
+
+#Predict Output
+predicted= predict(linear,x_test)
+
+```
+
+#### Logistic Regression
+```{r, eval=FALSE, include=TRUE}
+
+# ML algorithm
+#Train the model using the training sets and check
+#score
+logistic <- glm(y_train ~ ., data = x,family='binomial')
+
+# Model Evaluation
+summary(logistic)
+
+#Predict Output
+predicted= predict(logistic,x_test)
+```
+
+#### PCA
+
+```{r, eval=FALSE, include=TRUE}
+#Import packages
+require(stats)
+# ML algorithm
+pca <- princomp(train, cor = TRUE)
+
+# Model Evaluation
+
+#Predict Output
+train_reduced <- predict(pca,train)
+test_reduced <- predict(pca,test)
+
+
+```
+
+#### k-Means
+```{r, eval=FALSE, include=TRUE}
+#Import packages
+library("cluster")
+
+# ML algorithm
+fit <- kmeans(X, 3)
+#5 cluster solution
+
+# Model Evaluation
+
+#Predict Output
+```
+
+#### k-Nearest Neighbors
+```{r, eval=FALSE, include=TRUE}
+#Import packages
+require(knn)
+
+x <- cbind(x_train,y_train)
+
+# ML algorithm
+#Fitting model
+fit <-knn(y_train ~ ., data = x,k=5)
+
+# Model Evaluation
+summary(fit)
+
+#Predict Output
+predicted= predict(fit,x_test)
+
+```
+
+#### Support Vector Machine
+Take me to [Loading data from csv](#Loading data from csv)
+```{r, eval=FALSE, include=TRUE}
+#Import packages
+require("e1071")
+
+x <- cbind(x_train,y_train)
+
+# ML algorithm
+#Fitting model
+fit <-svm(y_train ~ ., data = x)
+
+# Model Evaluation
+summary(fit)
+
+#Predict Output
+#predicted= predict(fit,x_test)
+
+```
+
+#### Decision Tree
+```{r, eval=FALSE, include=TRUE}
+
+#Import packages
+require(rpart)
+
+# ML algorithm
+#grow tree
+fit <- rpart(y_train ~ ., data = x,method="class")
+
+# Model Evaluation
+summary(fit)
+
+#Predict Output
+predicted= predict(fit,x_test)
+
+```
+
+#### Random Forest
+
+```{r, eval=FALSE, include=TRUE}
+#Import packages
+require(cluster)
+
+# ML algorithm
+#Fitting model
+fit <- randomForest(Species ~ ., x,ntree=500)
+
+# Model Evaluation
+summary(fit)
+
+#Predict Output
+predicted= predict(fit,x_test)
+```
+
+#### Gradient Boosting
+```{r, eval=FALSE, include=TRUE}
+#Import packages
+require("caret")
+
+# ML algorithm
+#Fitting model
+fitControl <- trainControl( method = "repeatedcv", number = 4, repeats = 4)
+fit <- train(y_train ~ ., data = x, method = "gbm", trControl = fitControl,verbose = FALSE)
+
+# Model Evaluation
+
+#Predict Output
+predicted= predict(fit,x_test,type= "prob")[,2]
+```
+
+#### Naive Bayes
+```{r, eval=FALSE, include=TRUE}
+#Import packages
+require(e1071)
+
+# ML algorithm
+#Fitting model
+fit <-naiveBayes(y_train ~ ., data = x)
+
+# Model Evaluation
+summary(fit)
+
+#Predict Output
+predicted= predict(fit,x_test)
+
+```
+
+### Model Evaluation (Hold-Out)
+
+```{r, eval=FALSE, include=TRUE}
+
+```
+
+
+### Model Evaluation (Cross- Evaluation)
+```{r, eval=FALSE, include=TRUE}
+
+```
+
+
+### Model Optimization
+
+```{r, eval=FALSE, include=TRUE}
+
+```
+
+### Data Model Deployment
+
+## Preemptive Analytics
+
+
+### Real Time Analytics
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Code Repository Python
+
+#Code Repository Scala
+
+

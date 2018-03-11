@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MyDataScienceBlog - Sample Post</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+	<link href="css/clean-blog.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	<!-- Load Java Script-->
+	<script src="http://d3js.org/d3.v4.min.js"></script>
+	<script src="js/stacked-bar-chart.js"></script>
+	
+
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+	<style>
+	.mySlides {display:none}
+	.w3-left, .w3-right, .w3-badge {cursor:pointer}
+	.w3-badge {height:13px;width:13px;padding:0}
+	.w3-display-bottommiddle{position:relative;left:50%;bottom:0;transform:translate(-50%,0%);-ms-transform:translate(-50%,0%)}
+	.header-style{background: linear-gradient(to bottom, rgba(149,144,140,0.1), white) ;}
+	.navbar-collapse{	background: #FFFFFF ;	}
+	.navbar-custom .nav li a {	color: #919191;		padding: 20px;	}
+	.navbar-custom .navbar-brand, .navbar-custom  {	color: rgba(149,144,140,1);}
+	.navbar-custom .navbar-brand:hover, .navbar-custom .navbar-brand:focus {	color: rgba(149,144,140,0.5);}
+	.navbar-custom .nav li a:hover, .navbar-custom .nav li a:focus {		color: rgba(149,144,140,0.5);}
+	</style>
+	
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top   >
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="index.html">My Data Science Blog</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right ">
+                    <li class ="nav-color">
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+					
+					<li class="dropdown">
+					  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Articles <span class="caret"></span></a>
+					  <ul class="dropdown-menu" role="menu">
+						<li><a href="#">Latest</a></li>
+						<li class="divider"></li>
+						<li><a href="#FakeNewsClassifier">Fake news classifier using Python</a></li>
+						<li><a href="#FaceRecognitionWithPython">Face Recognition With Python</a></li>
+						<li><a href="#RealTimeAnalyticsWithPythonAndPlotly">Real Time Analytics with Python and Plotly (Part 1)</a></li>
+						<li><a href="#DataExplorationWithShiny">Data Exploration With Shiny</a></li>
+					  </ul>
+					</li>
+					
+					
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="header-style"> 
+	
+	<!-- D3 visualization -->	
+	<div class="intro-header-below">
+		
+
+			<div class="skalierender-svg-container"   >
+			
+			<!-- 									   <div class ="mySlides"> -->
+			<!-- 		    <div style =""> -->
+			<!-- 					<h3 style ="text-align: left;">Shiny Data Eyploration App </h3>-->
+			<!-- 					<h4 style ="text-align: left; ">Explore your data interactively</h4>-->
+			<!-- 			</div>-->
+			<!-- 			<div class ="skalierendes-nvd3" style="background-image: url('img/shiny-app.jpg"');   background-size: 80px 60px; ">
+			<!-- 			   <!--<img src="img/shiny-app.jpg" style=" position: relative; min-width: 500px;  min-height: 300px; left:20%;  width 60%; height: 100%;">  </img> -->
+			<!-- 		    </div>		--> 
+			<!-- 		</div>		-->	
+				
+			<div class ="mySlides">			
+				<form>
+				  <label><input type="radio" name="mode" value="grouped"> Grouped</label>
+				  <label><input type="radio" name="mode" value="stacked" checked> Stacked</label>
+				</form>	
+				<svg width="900" height="400" class="skalierendes-svg"       viewBox="0 0 900 400"> </svg>
+				<script src="js/stacked-bar-chart.js">  </script>
+			</div> 
+
+			<div class ="mySlides">			
+				<!-- LOAD NVD3 -->
+				<link href="css/nv.d3.css" rel="stylesheet" type="text/css">
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
+				<script src="js/nv.d3.js"></script>
+				<script src="js/stream_layers.js"></script>					
+				<div style ="">
+					<h3 style ="text-align: left; z-index = +100 ;">NVD3 Chart </h3>
+					<h4 style ="text-align: left; z-index = +100 ; ">Yet, another D3.js abstraction</h4>
+				</div>								 
+				<div id="skalierender-svg-container" >
+					<svg width="900" height="400" class="skalierendes-svg"       viewBox="0 0 900 400"> </svg>
+				</div>					
+				<script src="js/nvd3_multibarchart.js">  </script>
+			</div> 			
+			
+																  
+			<div class ="mySlides">
+				<div>
+					<div style ="">
+						<h3 style ="text-align: left;">Interactive Plotly Chart </h3>
+						<h4 style ="text-align: left; ">Real-Time Analytics with Kafka and Plotly  </h4>
+					</div>
+						<a href="https://plot.ly/~jquernhe/21/" target="_blank" title="" style="   display: block; text-align: center;"><img src="https://plot.ly/~jquernhe/21.png" alt="" style="max-width: 400px;  max-height: 300px;  width: 60%; height: 80%; "   onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+						<script data-plotly="jquernhe:21"  src="https://plot.ly/embed.js" async></script>
+					</div>	
+				</div>			
+
+			<div class ="mySlides">
+				<div style ="">
+						<h3 style ="text-align: left;">Hackathon 2017 </h3>
+						<h4 style ="text-align: left; ">Fake news classifier webapplication  </h4>
+				</div>
+					
+				<img href="https://github.com/QUER01/hackathon2017" src="https://raw.githubusercontent.com/QUER01/hackathon2017/master/reports/figures/screenshot.png" style ="left:20%; height:250px;"></img>
+		
+			</div>
+			<!--<script src="js/d3plus.full.js"></script> -->
+			<!--<div id="viz" class="skalierendes-d3plus-graph"   ></div> -->
+			<!--<script src ="js/d3plus_bubblechart.js"></script> -->
+			<!--<div class ="mySlides">  -->
+			<!-- create container element for visualization -->			
+			<!--<div id="viz2" class="skalierendes-d3plus-map" ></div> -->
+			<!--<script src ="js/d3plus_map.js"></script>	-->	
+			<!-- </div> -->
+			</div>		
+				<div style="    width: 100%;  text-align: center;    position: absolute;    bottom: 0px;">				   																									  
+				  <span class="dot"></span> 
+				  <span class="dot"></span> 
+				  <span class="dot"></span>
+				  <span class="dot"></span>
+				</div>			
+			<script src ="js/slideshow.js">	</script>
+		</div>
+	</div>		
+ </header>
+   <!-- Post Content -->
+  <br> </br>
+  <br> </br>
+  <br> </br>
+  <br> </br>
+  
+  <article id="FakeNewsClassifier" class ="article-style ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Hackathon 2017 Munich: Fake news classifier</h1>
+                        <h3 class="subheading">How to identify fake news and build a simple webapplication with python?</h2>
+                        <span class="meta">Posted by <a href="#">Julian Quernheim</a> on July 16, 2017</span>
+                    </div>
+		
+		<h1 class="promo-intro-mainheading"> </h1>
+  
+		<p>Last month I have participated in the global hackathon 2017 in Munich, which gave me a whole weekend to dedicate to a data science problem. This year, I decided to build a fake news classifier app with python. </p>
+		<p>Thus, I worked together with my team to solve the problem of how to determine if a news article is fake or real. After a little brainstorming, we quickly came up with an idea about how to solve this problem using a combinantion of natural language pre-processing, machine learning supervised algorithms and a good looking frontend webapplication. </p>
+		<p>Therefore, the full stack consists out of the natural language processing library (nltk), the famous data science library (sklearn), a webserver library (flask) and some basic html, css and javascript.</p>
+		<p>The remainder of this article will answer the following three questions.</p>
+		<ui>
+			<li>How to create features out of text?</li>
+			<li>How to build a text classifier model and how to predict  the class of a new news article?</li>
+			<li>How to build a website hosted with a pthon webapplication?</li>		
+		</ui>
+		<p>For those of you who cannot wait to see some code and to play around with the final fake news classifier webbapplication, I urge you to visit <a href ="https://github.com/QUER01/hackathon2017">my git repository</a> and clone it. The readme file inside the git repo, explains how to run the application in an isolated docker container.</p>
+		<img href="https://github.com/QUER01/hackathon2017" src="https://raw.githubusercontent.com/QUER01/hackathon2017/master/reports/figures/screenshot.png" style ="width:100%;"></img>
+		
+		<br></br>
+		
+		<h3>How to create features out of text?</h3>
+		<p>Text files, such as news articles, should be treated no different than well structured datasets with rows and columns for applying machine learning algorithms to it. The path to preprocess text files into meaningful numerical features is, however a little bit tricky.</p>
+		<p>The first step is to load all news articles into matrix form, which is called a document term matrix, where each row represents the document id and each column the individual words present in the entire article corpus. Each cell is therfore showing the word count within each article.</p>
+		<p>Since some words, such as stopswords, will appear more often then other words, the relative importance of each words must be calculated next. Therefore, we multiply the document term matrix by the inverse of the word frequency count vector. Thus, words will high frecency in the entire document corpus are penalized and less frequent words gain more importance in determining the meaning of the article.</p>
+		
+		
+		
+		<h3>How to build a text classifier model and how to predict the class of a new news article? </h3>
+		<p></p>
+		<ui>
+		    <ol><h4>1. Building a training and test dataset.</h4></ol>
+			<p></p>   
+		    <ol><h4>2. Clean your data</h4></ol>
+		    <p></p>
+		    <ol><h4>3. Convert text data into a weighted term documents frequency matrix (Tf-Idf) </h4>   </ol>
+		    <p>  </p>
+		    <ol><h4>4. Train a classifier model </h4>  </ol>
+		    <p></p>
+			<ol><h4>5. Test your model and improve it </h4>  </ol>
+		    <p></p>
+			<ol><h4>6. Stream new news and predict their class (fake vs. real) </h4>  </ol>
+		    <p></p>
+		 </ui>
+		 <h3> So what did I do?  </h3>
+		 <p></p>
+		 
+		 
+	         <!-- Article seperator -->
+	 	<br> </br>
+		<br> </br>
+		<br> </br>
+		<hr> </hr>             
+		</div>
+     </div>
+  </div>
+ </article>
+  
+  <article id="FaceRecognitionWithPython" class ="article-style ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Face Recognition With Python</h1>
+                        <h3 class="subheading">How does Face detection work?</h2>
+                        <span class="meta">Posted by <a href="#">Julian Quernheim</a> on April 1, 2017</span>
+                    </div>
+		
+		<h1 class="promo-intro-mainheading"> </h1>
+  
+		<p> Face recognition is a very easy task for humans, at least I have no problems to identify my wife or my parents from strangers. Nevertheless, until today little is known about how we actually perform this task. Our brain must be able to train individual nerve cells to respond to specific features of a scene, such as lines, angles or edges. Our visual cortex then combines these features into meaningfull information. Obviously, I am not a neuroscientists, so I will now focus on a data driven approach to face recognition using python and scikit machine learning library. </p>
+		<p> There are several types of image recognition methods. Probably the easiest and most intuitive one is based on geometric features of an image. While training the model you extract marker points (position of eyes or ears) and build a feature vector. Pedictions are then based on the eucleadian distances. The closer the new image is to the reference image, the higher is the probability of a match.  </p>
+		<p> There is a very good tutorial on keypoint detection at Kaggle. <a href="https://www.kaggle.com/c/facial-keypoints-detection">link to Kaggle</a> </p>
+		<p> Another face recognition method is based on Eigenfaces. An Eigenface is a set of eigenvectors, which in turn is derived from the covariance matrix of the probability distribution over the high-dimensional vector space. In a nutshell, each row, with all its coloured image pixels, is transformed into an eigenvector using principal component analyis (PCA). The combination of all eigenvectors represents the eigenface. Some examples of this can be seen in the script below.</p>
+	        <p> For more information, please visit scholarpedia.   <a href="http://www.scholarpedia.org/article/Eigenfaces">link to Scholarpedia</a>  </p>
+		<p> Automatic face recognition is about extracting meaningful features from an image, storing them in a useful representation and performing some classification on them. Thus, there is a series of four related problems/tasks to be solved/performed in order for face recognition programs to work properly. </p>
+		<ui>
+		    <ol><h4>1. Find all the faces in a picture</h4></ol>
+			<p>Detecting a face in an image is actually a pretty forward problem. Most of today's digital cameras are able to detect out faces on an image to make sure that every person in the picture is in focus. Thus, in theory nobody is caught on picture in an awkward moment. Well, theory sounds good, but unfortunately reality is a bit different. Anyway, one method to detect faces is called Histogram of Oriented Gradient - or simply <i>HOG</i>. You start by transforming the picture to black and white. Then, you look at each pixel and analyze the pixels surrounding it and draw an arrow in the direction in which the surrounding pixels are getting darker. When doing this for all pixels, you will end up with a lot of gradients. Well, you simplify the problem, by calculating the overall gradient for a collection of pixels, say 10 x 10 pixels. In the end, the image is reduced to a set of vectors which we can easily compare to to a previously generated HOG face pattern. Obviously, this method can be applied to detect any object in an image as long as there is already an generated HOG pattern for this object.  </p>   
+		    <ol><h4>2. Projecting and posing faces.</h4></ol>
+		    <p>The second problem that needs to be solved is to deal with photos of the same person taken from different angles or diffent illuminations. Thus, you need to be able to detect faces of the same person, regardless of the angle of the photo shot. Knowing the average position of certain facial landmarks, such as eyes, ears and nose, we can rotate or scale the image, such that the estimated facial landmarks are at the correct positions.    </p>
+		    <ol><h4>3. Encode the face into meaningful features by training a deep neural network</h4>   </ol>
+		    <p> The brute force aproach to face recognition is to simply compare the HOG images obtined from setup 1 against the training set. Unfortnately, this would take a long take and therefore would not be applicable in reality. A more sophisticated approach is to train a deep neural network on only the most meaningful characteristics of the training set. You start with two images of the same person and one totally different person. You then, start training the model to find the best combination of facial keypoints describing the two different people. Thus, after each iteration, you comapare your predictions with the response and slightly adjust the facial keypoints such that your prediction accuarcy improves. As noted above, keypoint detection is not the most reliable encoding technique. A more accurate way would be to calaculate the eigenface values of each image using Principal Component Analysis (PCA). The second approach will be described in the later section of this article.      </p>
+		    <ol><h4>4. Find a person's name that belongs to a face on a new image </h4>  </ol>
+		    <p>The last step in the face recognition program is to predict the facial keypoint measures of the person on the picture by using the trained neural network model obtained in step 3. Knowing the predicted facial keypoints or eigenfaces of your new image allows you to use a simple classification algorithm such as support-vector machine (SVN) or linear regression to predict the name of the person with a certain degree of accuracy</p>
+		 </ui>
+		 <h3> So what did I do?  </h3>
+		 <p>Well, I did not focus on detecting faces in an image. I also did not apply image tranformations to normalize the faces or train a neural network, because there are already good trained models out there. I preliminarly focused on the last step, building a classifier model to predict the name of the person.  </p>
+		 <p> The script below shows a very good example of the python scikit-learn library (References: <a href="http://scikit-learn.org/stable/auto_examples/applications/face_recognition.html">link to scikit</a>). I modified the script to fit my needs.
+		    <ul>
+		      <li>It shows how we can convert the normalized images into relative pixels.</li>
+		      <li>Split the data into training and testing sets.</li>
+		      <li>Apply principal component analysis to extract relevant features of the image. You will end up with a set of eigenfaces, which is a better measure than facial keypoints described above.</li>
+		  <li>Train a SVN classification model.</li>
+		      <li>Predict a new set of image and printing out the accuarcy rate, the f1 score and the recall rate. Thus, depending on your problem's evaluation criteria, you can assess the quality of your predictions. </li>
+		      <li>Finally, the example shows a qualitative evaluation, by displaying the eigenfaces and the actual images.</li>
+		  </ul>   
+		</p>
+		<p>  <script src="https://gist.github.com/QUER01/ef0aae3e3fe323907ce1abd2434367ba.js" ></script></p>
+		<p>  References: <a href="http://scikit-learn.org/stable/auto_examples/applications/face_recognition.html">link to scikit</a></p>
+	
+	         <!-- Article seperator -->
+	 	<br> </br>
+		<br> </br>
+		<br> </br>
+		<hr> </hr>             
+		</div>
+     </div>
+  </div>
+ </article>
+
+
+    <article id="RealTimeAnalyticsWithPythonAndPlotly" class ="article-style ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+                    <div class="post-heading">
+                        <h1> Real Time Analytics with Python and Plotly (Part 1)</h1>
+                        <h2 class="subheading">Streaming and analyzing data with Kafka and python in near real-time.</h2>
+                        <span class="meta">Posted by <a href="#">Julian Quernheim</a> on March 4, 2017</span>
+                    </div>
+
+			<p>Selecting the right information from a dataset is difficult. Collecting data now, analyzing it in a month and deciphering chunks of relevant information from a spreadsheet in the next quarter is not cool anymore, neither is it giving you a significant edge compared to your competitors. 
+			<br><br>Let's go Real Time. Make you data accessible and usefull from everywhere. Let's apply real time analytics!&nbsp; <br><br>Let's clarify the term "real time" a little bit first. For many users, a real time scenario would be data getting in every second. So for example if someone has tweeted about you company's product, a marketing manager would like to know the tweet's sentiment. Has it been a positive tweet or did the user expressed his/her dislike?<br>In comparison, in the financial context, missing data from even the last millisecond could mean that you just missed the moment to sell your long or short position on your stock.
+			  
+			<h4>  What did I do?  </h4>
+			<p>So let's get started with some real time analysis of your data. I will start simple and add some more advanced analytics in another article. I generate some random data, and simply update a time series graph with every new data point that is comming in.&nbsp; I use Python to generate the data and Plotly for near real time visualization.<br><br>Plotly is a graphical online tool, which is integrated in R, 
+				Python, Julia or Matlab. The latest feature enables plotly for real-time
+			 	data processing, which is shown below in the code and result panel.</p>			
+			<p>Follow these steps to repoduce the example on your local machine.</p>
+			<p>
+			<ul>
+			  <li>Create a plotly account</li>
+			  <li>Install and load all neccessary python&nbsp; libraries</li>
+			  <li>Create a quick json config file in which you store your plotly user account variables</li>
+			  <li>Sign in into Plotly using the "plotly.plotly.sign_in" function</li>
+			  <li>Use the "plotly.plotly.iplot" functions to create a new graph</li>
+			  <li>Start a stream using plotly.plotly.Stream and send random data to your graph. The graph will automatically update in your plotly account.</li>
+			  <li>Embedd the plotly graph in any html text. Especially the new real-time functionality makes plotly highly attractive for easy and interactive reports. <br></li></ul>
+			<br><br>
+			<div>
+			    <a href="https://plot.ly/~jquernhe/21/" target="_blank" title="" style="display: block; text-align: center;"><img src="https://plot.ly/~jquernhe/21.png" alt="" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+			    <script data-plotly="jquernhe:21"  src="https://plot.ly/embed.js" async></script>
+			</div>
+			<div><script  src="https://gist.github.com/QUER01/16fd4cb4a03ec8660b0d1a72330193c2.js"></script> </div>
+
+			<h4>  What is next?  </h4>
+			  
+			<p>Some of you might have heard about the lambda architecture, that combines real time analytics with batch processing within the BIG DATA context. For those of you who are not familiar with the lambda concept, here is a brief explaination. Nathan Marz, a former employee of Twitter, introduced the Lambda archtitecture as a generic, scalable and fault-tolerant data
+				processing architecture for working with distributed systems. The idea is to forward the static data to the batch processing layer and the more dynamic data into the speed layer. The former feeds the incomming data into the master dataset, 
+				which is then indexed and aggregated in the the serving layer. Here individual views are build on the master data, which presents relevant information to the end-user. <br><br>The latter is relevant for data that change drastically over time. Real time data, such as live twitter feeds, stock prices etc. are feed into the speed layer.</p> 
+
+			<p>In order to satisfy the different requirements, each layer utilizes a different technology stack. For instance, the batch layer requires fault tolerant technologies such as Spark, Hive ..., whereas the speed layer would require technologies that are able to deal with message queues and fast incomming data streams. Therefore, Apache Storm, Apache Kafka as well as Apache Spark is often used.</p>
+			<p> In one of my next posts, I am going to use Apache Kafka and Python to queue fake data, apply a support-vector machine learning classification algroithm and visualize the decision boundary using plotly again. </p>
+			  
+			
+ 		         <!-- Article seperator -->
+		   	   <br> </br>
+			   <br> </br>
+			   <br> </br>
+			   <hr> </hr>     
+		</div>
+            </div>
+        </div>
+    </article>
+
+
+
+
+
+
+
+
+
+    <article id="DataExplorationWithShiny" class ="article-style ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+                    <div class="post-heading">
+                        <h1>Data Exploration With Shiny</h1>
+                        <h2 class="subheading">Explore your data interactively</h2>
+                        <span class="meta">Posted by <a href="#">Julian Quernheim</a> on March 1, 2017</span>
+                    </div>
+
+             	
+
+			<p>Selecting the right information from a dataset is difficult. 
+				Wouldn't it be great to have a data exploration and feature selection tool at your disposal to simplify the work?
+				Shiny is a rapid application development package for R. 
+				With Shiny, it is relatively easy to develop a small application that execute R code with the single press of a button. 
+				Moreover, the Shiny app can be hosted on a seperate R server and accessed via the webbrowser. 
+				This makes this package attractive for interactive data exploration for many concurrent users in some small organizations. (Note: R stores all data in-memory and opens a new R session for every Shiny app user. Thus, this solution is not applicable for scenarios with more than 5 concurrent users.)   </p>
+			<p>From a data science persepctive, shiny is a perfect way to explore new data sets in 1.2.3. steps (Start, Load, Plot). </p>
+			<h4>So what did I do? </h4>
+			<p>I developed a Shiny app to simplify visual data exploration. 
+				Since Shiny only lets you create the visual controls of your application, you still need to use R packages such as ggplot2 or ggalley for data visualization or boruta package for automatic feature selection. Moreover, there is as well the possibility to implement custom java script libraries such as d3.js to extend shiny with nice looking visualizations. </p>
+						
+																<img src ="img/shiny-app.jpg" width=100% >  </img>
+																
+				<p>Shiny seperates between the graphical user interface structure (ui.R), the actual input file that executes code on the server (server.R) and the execution file that calls both ui.R and server.R files. 
+				The app structure is defined first in the ui.R file. Note, a strict seperation between the three file types is adviced but not required. For convenience, I included all three parts in one R script.</p>
+			<h5>Building the Shiny app structure (ui.R):</h5>
+			<p>The following commands are used to create the general structure of your app.</p>
+			  
+			<li>sidebarLayout( )</li>  
+			<ol>
+			   <li>sidebarPanel( ) </li>
+				<ul><li>Controls: fileInput( ), checkboxInput( ), radiobuttons( ), HelpText( ) , checkboxGroupInput </li></ul>
+
+			<li>mainPanel( )</li>
+			<ul>
+				<li>tabsetPanel( )</li>
+				<li>tabPanel( )</li>
+				<li>fluidRow( )</li>
+				<li>column(server input class, name)</li>
+			</ul>
+			</ol>
+			<p>Within the column function, we call a class reference of the server.R script. 
+				Therefore, we need to identify the class type (e.g. renderPlot or renderDataTable) and the userdefined object name (e.g. "plot1" ). 
+				When the ui.R script is executed, the function that belongs to the object is executed as well.  <p>
+
+			<h3>Building the Shiny app input file (server.R):</h3>
+			<p>The server.R file is split into an input and an output section. 
+				The input session is reactive, meaning that it is for example possible to execute a data load again, based on the selection made by the end user. 
+				The output section is however static, which implies that dynamic drill downs in you data is not possible. 
+				This type of dynamic interaction is still a privilege of self-service BI tools, such as Qlikview, Tableau or Spotfire.</p>
+			<ol>
+			  <li>Input</li>
+			<ul><li>data <- reactive({  })</li></ul>
+			<p></p>
+			<li>Output:</li>
+			<ul><li>Controls: renderDataTable, renderPlot </li></ul>
+			</ol>
+			
+			
+			<h4>  What is next?  </h4>
+			<p>Shiny is a great tool for small interactive dashboards with Analytical capabilities. This is because you are damn close to your data, which means that you can perform any tranformations, calculations, predictions directly in R. </p> 
+			<p>The next step is to make it look sexy. Since Shiny is a webapplication framework on R, it is relatively easy to add custom css3 and java script to the frontend application. For example responsive dropdown menues, mobile application views can be added using bootstrap css. Moreover, new types of visualization objects are possible using d3.js.  </p>
+			<br>  </br>
+			<p><script src="https://gist.github.com/QUER01/477708ba9ebc59fe133e1347695237df.js"></script></p>
+			
+ 		         <!-- Article seperator -->
+		   	   <br> </br>
+			   <br> </br>
+			   <br> </br>
+			   <hr> </hr>     
+		</div>
+            </div>
+        </div>
+    </article>
+
+
+	
+
+
+
+
+    <hr>
+
+ <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="https://de.linkedin.com/pub/julian-quernheim/b0/480/869">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.xing.com/profile/Julian_Quernheim">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-xing fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/QUER01">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; mydatascienceblog 2017</p>
+					<p class="copyright text-muted"> <a href="impressum.html" >Impressum </a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
