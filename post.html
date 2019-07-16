@@ -13,7 +13,8 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ 
     <!-- Theme CSS -->
     <link href="css/clean-blog.min.css" rel="stylesheet">
 	<link href="css/clean-blog.css" rel="stylesheet">
@@ -22,18 +23,106 @@
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
+  
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  
 	<!-- Load Java Script-->
 	<script src="http://d3js.org/d3.v4.min.js"></script>
 	<script src="js/stacked-bar-chart.js"></script>
-	
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+      });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+    $("#hackathon-script1").hide();
+        $("#hackathon-button1").click(function(){
+            $("#hackathon-script1").toggle();
+        });
+    });
+   
+    </script>
+    <script>
+    $(document).ready(function(){
+    $("#hackathon-script2").hide();
+        $("#hackathon-button2").click(function(){
+            $("#hackathon-script2").toggle();
+        });
+    });
+    </script>
+    <script>
+    $(document).ready(function(){
+    $("#hackathon-script3").hide();
+        $("#hackathon-button3").click(function(){
+            $("#hackathon-script3").toggle();
+        });
+    });
+    </script>    
+    <script>
+    $(document).ready(function(){
+    $("#hackathon-script3_1").hide();
+        $("#hackathon-button3_1").click(function(){
+            $("#hackathon-script3_1").toggle();
+        });
+    });
+    </script>
+    <script>
+    $(document).ready(function(){
+    $("#hackathon-script4").hide();
+        $("#hackathon-button4").click(function(){
+            $("#hackathon-script4").toggle();
+        });
+    });
+    </script>
+    
+    
+    <!-- FaceRecognition Article-->
+    <script>
+    $(document).ready(function(){
+    $("#FaceRecognition-script1").hide();
+        $("#FaceRecognition-button1").click(function(){
+            $("#FaceRecognition-script1").toggle();
+        });
+    });
+    </script>   
+    
+    <!-- RealTimeAnalytics Article-->
+    <script>
+    $(document).ready(function(){
+    $("#RealTimeAnalytics-script1").hide();
+        $("#RealTimeAnalytics-button1").click(function(){
+            $("#RealTimeAnalytics-script1").toggle();
+        });
+    });
+    </script>
+
+    <!-- ShinyApplication Article-->
+    <script>
+    $(document).ready(function(){
+    $("#ShinyApplication-script1").hide();
+        $("#ShinyApplication-button1").click(function(){
+            $("#ShinyApplication-script1").toggle();
+        });
+    });
+    </script>
+
+
+
 
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,6 +138,8 @@
 	.navbar-custom .navbar-brand, .navbar-custom  {	color: rgba(149,144,140,1);}
 	.navbar-custom .navbar-brand:hover, .navbar-custom .navbar-brand:focus {	color: rgba(149,144,140,0.5);}
 	.navbar-custom .nav li a:hover, .navbar-custom .nav li a:focus {		color: rgba(149,144,140,0.5);}
+	.center {  display: block;  margin-left: auto;  margin-right: auto;  width: 50%;}
+    
 	</style>
 	
 </head>
@@ -105,20 +196,10 @@
     <header class="header-style"> 
 	
 	<!-- D3 visualization -->	
-	<div class="intro-header-below">
+	<!--<div class="intro-header-below">
 		
 
 			<div class="skalierender-svg-container"   >
-			
-			<!-- 									   <div class ="mySlides"> -->
-			<!-- 		    <div style =""> -->
-			<!-- 					<h3 style ="text-align: left;">Shiny Data Eyploration App </h3>-->
-			<!-- 					<h4 style ="text-align: left; ">Explore your data interactively</h4>-->
-			<!-- 			</div>-->
-			<!-- 			<div class ="skalierendes-nvd3" style="background-image: url('img/shiny-app.jpg"');   background-size: 80px 60px; ">
-			<!-- 			   <!--<img src="img/shiny-app.jpg" style=" position: relative; min-width: 500px;  min-height: 300px; left:20%;  width 60%; height: 100%;">  </img> -->
-			<!-- 		    </div>		--> 
-			<!-- 		</div>		-->	
 				
 			<div class ="mySlides">			
 				<form>
@@ -129,15 +210,14 @@
 				<script src="js/stacked-bar-chart.js">  </script>
 			</div> 
 
-			<div class ="mySlides">			
-				<!-- LOAD NVD3 -->
+			<div class ="mySlides">	
 				<link href="css/nv.d3.css" rel="stylesheet" type="text/css">
 				<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
 				<script src="js/nv.d3.js"></script>
 				<script src="js/stream_layers.js"></script>					
 				<div style ="">
 					<h3 style ="text-align: left; z-index = +100 ;">NVD3 Chart </h3>
-					<h4 style ="text-align: left; z-index = +100 ; ">Yet, another D3.js abstraction</h4>
+					<h4 style ="text-align: left; z-index = +100 ; ">D3.js</h4>
 				</div>								 
 				<div id="skalierender-svg-container" >
 					<svg width="900" height="400" class="skalierendes-svg"       viewBox="0 0 900 400"> </svg>
@@ -163,33 +243,108 @@
 						<h4 style ="text-align: left; ">Fake news classifier webapplication  </h4>
 				</div>
 					
-				<img href="https://github.com/QUER01/hackathon2017" src="https://raw.githubusercontent.com/QUER01/hackathon2017/master/reports/figures/screenshot.png" style ="left:20%; height:250px;"></img>
+				<img href="https://github.com/QUER01/hackathon2017" src="https://raw.githubusercontent.com/QUER01/Machine-Learning-Python/master/hackathon2017/reports/figures/screenshot.png"  style ="width:50%;" class="center"></img>
 		
 			</div>
-			<!--<script src="js/d3plus.full.js"></script> -->
-			<!--<div id="viz" class="skalierendes-d3plus-graph"   ></div> -->
-			<!--<script src ="js/d3plus_bubblechart.js"></script> -->
-			<!--<div class ="mySlides">  -->
-			<!-- create container element for visualization -->			
-			<!--<div id="viz2" class="skalierendes-d3plus-map" ></div> -->
-			<!--<script src ="js/d3plus_map.js"></script>	-->	
-			<!-- </div> -->
+			<div class ="mySlides">
+				<div style ="">
+						<h3 style ="text-align: left;">RNN </h3>
+						<h4 style ="text-align: left; ">applied to stock market data </h4>
+				</div>
+					
+				<img href="" src="img/RNN.png"  style ="width:50%;" class="center"></img>
+		
+			</div>
+
 			</div>		
 				<div style="    width: 100%;  text-align: center;    position: absolute;    bottom: 0px;">				   																									  
 				  <span class="dot"></span> 
 				  <span class="dot"></span> 
 				  <span class="dot"></span>
 				  <span class="dot"></span>
+				  <span class="dot"></span>
 				</div>			
 			<script src ="js/slideshow.js">	</script>
 		</div>
-	</div>		
+	</div>		-->
  </header>
    <!-- Post Content -->
   <br> </br>
   <br> </br>
   <br> </br>
   <br> </br>
+  
+
+   <article id="RNN" class ="article-style ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Recururrent Neural Networks applied to predict stock market data</h1>
+                        <h3 class="subheading">How do recurrent neural networks work and how can we apply them to timeseries data to make predictions about the future?</h2>
+                        <span class="meta">Posted by <a href="#">Julian Quernheim</a> on January 06, 2019</span>
+                    </div>
+		
+		<h1 class="promo-intro-mainheading"> </h1>
+  
+		<p>I have recently studied how neural networks work on sequential data, in particular I applied a neural network on stock market data to predict the beahviour of the stock over time. This aricle will describe how recurrent neural network are build, trained and used to do forecasting. For the impatient readers among us, you can find the source code in my git repository here.</p>
+		<p>A recurrent neural network (RNN) is an artificial neural network (ANN) that can be applied on sequential data, which makes it a perfect candidate for time series analysis and thus offer an alternative to more conventional methods such as VARIMA.   </p>
+		<p>The remainder of this article will answer the following three questions.</p>
+		<ui>
+			<li>How does a RNN work?</li>
+			<li>How is an RNN trained?</li>
+			<li>How can we apply an RNN to forecast stock prices? </li>		
+		</ui>
+	    <br></br>
+		<h4>1. How does a RNN work?</h4>    
+		<p>Like any other ANN, RNNs consist out of input, hidden and output layers. Each layer consist out of many nodes, which are connected to all nodes in the next layer or in case of RNNs also to itself (recurrency).  </p>
+		<p>Since RNNs allow the previous output to be used as inputs while having additional hidden states, they are often applied in for example speech recognition or forecasting problems. They are typically presented in a folded or unfolded way as shown below.</p>
+		<img src="img/RNN.png" style ="width:100%;"></img>
+		<p>The most important buidling block of any artificial neural network is the perceptron. The perceptron is a simple algorithm for learning a binary classifier that is a simple function that maps an input vector $ x $ to an binary output value $f(x) $. With regard to neural networks, the perceptron is said to 'activate' or 'deactivate' a neuron. In mathematical terms this implies:</p>
+		
+		<p>$$ f(x) = f(b + \sum_{i=1}^m x_i+ \theta_i) $$</p>
+		
+		<p>Whith regard to recurrent neural networks, we add some more complexity to the model. But, despite some more variables and the additional time dimension, the fundamental buidling blocks of an RNN stays identical to an ANN. Hence, for an RNN the activation of the hidden neuron $h^{(t)}$ for each timestamp $t$ is defined as:
+		$$h^{(t)} = f_{(h)}(Ux^{(t)} + Wh^{(t-1)} + b_{(h)} )$$
+		where U and W are the weights, b is the bias term and f is the activation function, which can be sigmoid, tanh or ReLu.
+		</p>
+		<h4>2. How is an RNN trained?</h4>  
+		<p>The objective of an RNN is to minimize the sum of the global loss/ error vector $$ \pmb L = \sum_{t}^T L^t $$ by adjusting the weight matrices W, U and V accordingly. These weights are attached to the edges of the neural network and determined during training using an algorithm called Back Propagation Through Time (BPTT) (Werbos, 1990). Like any other optimization problem, we need to calculate the gradient to of the global loss w.r.t the weights. Hence, the gradient of the loss is defined by $$ \frac{\partial  L}{\partial \pmb W} = \sum_{t=1}^T \frac{\partial  L^{(t)}}{\partial \pmb W} $$   </p>
+		<p>Next, we can  apply the chain rule and write the gradient as </p>
+		
+		$$ \frac{\partial  L}{\partial \pmb W} = \sum_{t=1}^T \sum_{k=1}^t \frac{\partial  L^{(t)}}{\partial \pmb o^{(t)}}  \frac{\partial  o^{(t)}}{\partial \pmb h^{(t)}} \frac{\partial  h^{(t)}}{\partial \pmb h^{(k)}}  \frac{\partial  h^{(k)}}{\partial \pmb W}$$
+	
+		where: 
+		<ul style="margin-left:2.5em; padding-left:0.5em;">
+			<li>$\pmb o^{t} $ is the output vector at time t </li>
+			<li>$\pmb h^{t} $ is the hidden vector at time t </li>
+			<li>$\pmb h^{k} $ is the hidden vector of node k at time t</li>		
+		</ul>
+       <p>You might have noticed that the the term $ \frac{\partial  h^{(t)}}{\partial \pmb h^{(k)}} $ depneds on time, which implies that more gradients need to be computed, the more historic data is considerd. Hence, for long time series, the BPTT algorithm might run into the so called vanishing or exploding gradient problem, because many matrix multiplications might cause the gradient to shrink to zero or explode to infinity.</p>
+
+
+	   <h4>3. How can we apply an RNN to forecast stock prices?</h4>    
+		<p>COMMING SOON</p>
+
+
+		
+		<br> </br>
+		<br> </br>
+		<br> </br>
+		<hr> </hr>  
+		<ui>
+			<li>Werbos, P. (1990): Backpropagation Through Time: What It does and How to Do It. https://doi.org/10.1109/5.58337Retrieved from http://axon.cs.byu.edu/~martinez/classes/678/Papers/Werbos_BPTT.pdf </li>
+
+		</ui>
+
+
+		
+		</div>
+     </div>
+  </div>
+ </article>
+
+ 
   
   <article id="FakeNewsClassifier" class ="article-style ">
         <div class="container">
@@ -212,38 +367,77 @@
 			<li>How to build a text classifier model and how to predict  the class of a new news article?</li>
 			<li>How to build a website hosted with a pthon webapplication?</li>		
 		</ui>
-		<p>For those of you who cannot wait to see some code and to play around with the final fake news classifier webbapplication, I urge you to visit <a href ="https://github.com/QUER01/hackathon2017">my git repository</a> and clone it. The readme file inside the git repo, explains how to run the application in an isolated docker container.</p>
-		<img href="https://github.com/QUER01/hackathon2017" src="https://raw.githubusercontent.com/QUER01/hackathon2017/master/reports/figures/screenshot.png" style ="width:100%;"></img>
+		<p>For those of you who cannot wait to see some code and to play around with the final fake news classifier webbapplication, I urge you to visit <a href ="https://github.com/QUER01/Machine-Learning-Python/tree/master/hackathon2017">my git repository</a> and clone it. The readme file inside the git repo, explains how to run the application in an isolated docker container.</p>
+		<img href="https://github.com/QUER01/Machine-Learning-Python/tree/master/hackathon2017" src="https://raw.githubusercontent.com/QUER01/Machine-Learning-Python/master/hackathon2017/reports/figures/screenshot.png" style ="width:100%;"></img>
 		
 		<br></br>
 		
-		<h3>How to create features out of text?</h3>
+		<h4>1 How to create features out of text?</h4>
 		<p>Text files, such as news articles, should be treated no different than well structured datasets with rows and columns for applying machine learning algorithms to it. The path to preprocess text files into meaningful numerical features is, however a little bit tricky.</p>
+        
+        <p>
+            <button id ="hackathon-button1" type="button" class ="btn btn-primary btn-sm">Show me the script</button>
+            <div id="hackathon-script1">
+               <script  src="http://gist-it.appspot.com/https://github.com/QUER01/Machine-Learning-Python/tree/master/hackathon2017/src/data/make_dataset.py"></script>
+            </div>
+        </p>  
+        <br></br>
+		
+        <h4>2. Clean your data and convert text data into a weighted term documents frequency matrix (Tf-Idf) </h4>   
+
 		<p>The first step is to load all news articles into matrix form, which is called a document term matrix, where each row represents the document id and each column the individual words present in the entire article corpus. Each cell is therfore showing the word count within each article.</p>
-		<p>Since some words, such as stopswords, will appear more often then other words, the relative importance of each words must be calculated next. Therefore, we multiply the document term matrix by the inverse of the word frequency count vector. Thus, words will high frecency in the entire document corpus are penalized and less frequent words gain more importance in determining the meaning of the article.</p>
+		<p>Since some words, such as stopswords, will appear more often then other words, the relative importance of each words must be calculated next. Therefore, we multiply the document term matrix by the inverse of the word frequency count vector. Thus, words will high frequency in the entire document corpus are penalized and less frequent words gain more importance in determining the meaning of the article.</p>
 		
+        <p>The term frequency–Inverse document frequency is calculated as
+        $$TFIDF(t,d,D) = TF(t) * IDF(t) $$
+        
+        $$TFIDF(t,d,D) = { {f_{t,d}} \over  {\sum f_{t,d}}} * \log {{D} \over {\sum_{D:t \in D} 1 }}$$ </p>
 		
+		<p>TF(t) = (Number of times term t appears in a document) / (Total number of terms in the document).</p>
+        <p>IDF(t) = log_e(Total number of documents / Number of documents with term t in it).</p>
+        
+        <p>
+            <button id ="hackathon-button2" type="button" class ="btn btn-primary btn-sm">Show me the script</button>
+            <div id="hackathon-script2">
+               <script  src="http://gist-it.appspot.com/https://github.com/QUER01/Machine-Learning-Python/blob/master/hackathon2017/src/data/transform_dataset.py"></script>
+            </div>
+        </p>  
+        <br></br>
 		
-		<h3>How to build a text classifier model and how to predict the class of a new news article? </h3>
-		<p></p>
-		<ui>
-		    <ol><h6>1. Building a training and test dataset.</h6></ol>
-			<p></p>   
-		    <ol><h6>2. Clean your data</h6></ol>
-		    <p></p>
-		    <ol><h6>3. Convert text data into a weighted term documents frequency matrix (Tf-Idf) </h6>   </ol>
-		    <p>  </p>
-		    <ol><h6>4. Train a classifier model </h6>  </ol>
-		    <p></p>
-			<ol><h6>5. Test your model and improve it </h6>  </ol>
-		    <p></p>
-			<ol><h6>6. Stream new news and predict their class (fake vs. real) </h6>  </ol>
-		    <p></p>
-		 </ui>
-		 <h3> So what did I do?  </h3>
-		 <p></p>
+        <h4>3. Train a classifier model </h4> 
+        <p>Training the statisical model is actual the most straight-foreward task. Within the module, I define the model type in the __init__.py file, which gets loades as soon as the module loads from within main.py. In this case I choose the simple random forest regression model, because it performed best during testing. You can change the model by simply modifying the variable "model-type" to execute the corresponding model..</p>
+        <p>
+            <button id ="hackathon-button3_1" type="button" class ="btn btn-primary btn-sm">Show me the __init__.py script</button>
+            <div id="hackathon-script3_1">
+         <script src="http://gist-it.appspot.com/https://github.com/QUER01/Machine-Learning-Python/blob/master/hackathon2017/src/__init__.py"></script>
+         </div>
+        </p>
+        
+               
+        <p>
+            <button id ="hackathon-button3" type="button" class ="btn btn-primary btn-sm">Show me the script</button>
+            <div id="hackathon-script3">
+            <script src="http://gist-it.appspot.com/https://github.com/QUER01/Machine-Learning-Python/blob/master/hackathon2017/src/models/train_model.py"></script>
+            </div>
+        </p>
+        <br></br>
+		
+        <h4>4. Stream new news and predict their class (fake vs. real) </h4>  
+        <p>The final step is to use the statistical model to classify news articles. The script "stream_news.py" downloads new-articles from https://newsapi.org and analyzes their likelihood of being fake or real. Thus, it opens the stored model "model.pkl" from disk and applies it to the new articles, each at a time within the function "getDailyNews()". Please note, that we have to clean and transform each news-article into a format that can be used as input for our model. This is where the tfidf transformation is applied again.  </p>
+        <p>
+            <button id ="hackathon-button4" type="button" class ="btn btn-primary btn-sm">Show me the script</button>
+            <div id="hackathon-script4">
+            <!-- Code snipped of how to transform the dataset -->
+            <script src="http://gist-it.appspot.com/https://github.com/QUER01/Machine-Learning-Python/tree/master/hackathon2017/src/data/stream_news.py"></script>
+            </div>
+        </p>
+        <p>Lastly, the prediction is stored as a csv file on disk for later retrieval.</p>
+        
+        <br></br>
+		    
 		 
-		 
+         <h3>Concluding remarks </h3>
+		 <p>Building a complete smart data product that is able to classify news headlines into fake news and real news was a interesting task to dedicate a weekend to. The approach taken to achieve a final product was straight foreward and the focus of this solution is more on the re-useability of the result than on the accuracy of the statistical model. Having now a baseline model, which uses random forest regression to measure the similarity of news headlines of the two groups is a good start.  </p>
 	         <!-- Article seperator -->
 	 	<br> </br>
 		<br> </br>
@@ -294,7 +488,14 @@
 		      <li>Finally, the example shows a qualitative evaluation, by displaying the eigenfaces and the actual images.</li>
 		  </ul>   
 		</p>
-		<p>  <script src="https://gist.github.com/QUER01/ef0aae3e3fe323907ce1abd2434367ba.js" ></script></p>
+        
+         <p>
+                <button id ="FaceRecognition-button1" type="button" class ="btn btn-primary btn-sm">Show me the script</button>
+                <div id="FaceRecognition-script1">
+               <script src="https://gist.github.com/QUER01/ef0aae3e3fe323907ce1abd2434367ba.js" ></script>
+		        </div>
+         </p>
+        
 		<p>  References: <a href="http://scikit-learn.org/stable/auto_examples/applications/face_recognition.html">link to scikit</a></p>
 	
 	         <!-- Article seperator -->
@@ -341,8 +542,15 @@
 			    <a href="https://plot.ly/~jquernhe/21/" target="_blank" title="" style="display: block; text-align: center;"><img src="https://plot.ly/~jquernhe/21.png" alt="" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
 			    <script data-plotly="jquernhe:21"  src="https://plot.ly/embed.js" async></script>
 			</div>
-			<div><script  src="https://gist.github.com/QUER01/16fd4cb4a03ec8660b0d1a72330193c2.js"></script> </div>
-
+             <p>
+                    <button id ="RealTimeAnalytics-button1" type="button" class ="btn btn-primary btn-sm">Show me the script</button>
+                    <div id="RealTimeAnalytics-script1">
+                    <script  src="https://gist.github.com/QUER01/16fd4cb4a03ec8660b0d1a72330193c2.js"></script> 
+                    </div>
+             </p>
+        
+            
+            
 			<h4>  What is next?  </h4>
 			  
 			<p>Some of you might have heard about the lambda architecture, that combines real time analytics with batch processing within the BIG DATA context. For those of you who are not familiar with the lambda concept, here is a brief explaination. Nathan Marz, a former employee of Twitter, introduced the Lambda archtitecture as a generic, scalable and fault-tolerant data
@@ -437,8 +645,12 @@
 			<p>Shiny is a great tool for small interactive dashboards with Analytical capabilities. This is because you are damn close to your data, which means that you can perform any tranformations, calculations, predictions directly in R. </p> 
 			<p>The next step is to make it look sexy. Since Shiny is a webapplication framework on R, it is relatively easy to add custom css3 and java script to the frontend application. For example responsive dropdown menues, mobile application views can be added using bootstrap css. Moreover, new types of visualization objects are possible using d3.js.  </p>
 			<br>  </br>
-			<p><script src="https://gist.github.com/QUER01/477708ba9ebc59fe133e1347695237df.js"></script></p>
-			
+			<p>
+                    <button id ="ShinyApplication-button1" type="button" class ="btn btn-primary btn-sm">Show me the script</button>
+                    <div id="ShinyApplication-script1">
+                    <script src="https://gist.github.com/QUER01/477708ba9ebc59fe133e1347695237df.js"></script>
+            </div>
+             </p>
  		         <!-- Article seperator -->
 		   	   <br> </br>
 			   <br> </br>
